@@ -5,24 +5,27 @@ const ProductCatagory = () => {
   const catagoryItems = [
     {
       id: 1,
-      title: "High Price Range",
+      title: "Apple Laptops",
+      brand: "apple",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, aperiam.",
-      img: "https://static-01.daraz.com.bd/p/4f6151930517fbad281ed03293eb3d84.jpg",
+      img: "https://www.startech.com.bd/image/cache/catalog/laptop/apple/macbook-air/MGN73/macbook-mgn73Zp-a-1-500x500.jpg",
     },
     {
       id: 2,
-      title: "Midium Price Range",
+      title: "HP Laptops",
+      brand: "hp",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, aperiam.",
-      img: "https://static-01.daraz.com.bd/p/4f6151930517fbad281ed03293eb3d84.jpg",
+      img: "https://www.startech.com.bd/image/cache/catalog/laptop/hp-laptop/15s-fq2644tu/15s-fq2644tu-07-500x500.jpg",
     },
     {
       id: 3,
-      title: "Low Price Range",
+      title: "Other Laptops",
+      brand: "others",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, aperiam.",
-      img: "https://static-01.daraz.com.bd/p/4f6151930517fbad281ed03293eb3d84.jpg",
+      img: "https://www.startech.com.bd/image/cache/catalog/laptop/mi-laptop/redmibook-pro-14/redmibook-pro-14-01-500x500.jpg",
     },
   ];
   return (

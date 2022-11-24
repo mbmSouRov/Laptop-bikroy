@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Apple MacBook Air 13.3-Inch Retina Display 8-core Apple M1 chip with 8GB RAM, 256GB SSD (MGN63) Space Gray",
+    "brand": "apple",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, aperiam.",
+    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/apple/macbook-air/MGN73/macbook-mgn73Zp-a-500x500.jpg"
+  },
+  {
+    "title": "Apple MacBook Air (2022) Apple M2 Chip 13.6-Inch Liquid Retina Display 8GB RAM 256GB SSD Silver #MLXY3LL/A / MLXY3ZP/A",
+    "brand": "apple",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, aperiam.",
+    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/apple/macbook-air-m2-chip/macbook-air-m2-chip-silver-01-500x500.webp"
+  },
+  {
+    "title": "HP 15s-du3560TU Core i3 11th Gen 15.6 FHD Laptop",
+    "brand": "hp",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, aperiam.",
+    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/hp-laptop/hp-15s/hp-15s-2-500x500.jpg"
+  },
+  {
+    "title": "HP 250 G8 Core i5 11th Gen 15.6 FHD Laptop",
+    "brand": "hp",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, aperiam.",
+    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/hp-laptop/250-g8/250-g8-01-500x500.jpg"
+  },
+  {
+    "title": "Dell Latitude 14 3420 Core i3 11th Gen 14 FHD Laptop",
+    "brand": "others",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, aperiam.",
+    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/dell/latitude-14-3420/latitude-3420-01-500x500.jpg"
+  },
+  {
+    "title": "Asus Vivobook E410MA Celeron N4020 14 HD Laptop",
+    "brand": "others",
+    "description": "https://www.startech.com.bd/image/cache/catalog/laptop/asus/e410ma/e410ma-01-500x500.jpg"
+  }
+]

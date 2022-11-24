@@ -1,9 +1,16 @@
 import React from "react";
+import AdvertisementItems from "./AdvertiseItems/AdvertisementItems";
+import Banner from "./Banner/Banner";
+import ProductCatagory from "./ProductCatagory/ProductCatagory";
+import SubscribeSection from "./SubscribeSection/SubscribeSection";
 
 const Home = () => {
   return (
     <div>
-      <p>This is Home Page</p>
+      <Banner></Banner>
+      <AdvertisementItems></AdvertisementItems>
+      <ProductCatagory></ProductCatagory>
+      <SubscribeSection></SubscribeSection>
     </div>
   );
 };

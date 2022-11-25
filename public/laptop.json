@@ -3,35 +3,72 @@
     "title": "Apple MacBook Air 13.3-Inch Retina Display 8-core Apple M1 chip with 8GB RAM, 256GB SSD (MGN63) Space Gray",
     "brand": "apple",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, aperiam.",
-    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/apple/macbook-air/MGN73/macbook-mgn73Zp-a-500x500.jpg"
+    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/apple/macbook-air/MGN73/macbook-mgn73Zp-a-500x500.jpg",
+    "location": "Dhaka, Jatrabari",
+    "resale_price": 50000,
+    "original_price": 127000,
+    "years_of_use": "2 years",
+    "posted_time": "25 November, 2022",
+    "seller_name": "MBM Sourov"
   },
   {
     "title": "Apple MacBook Air (2022) Apple M2 Chip 13.6-Inch Liquid Retina Display 8GB RAM 256GB SSD Silver #MLXY3LL/A / MLXY3ZP/A",
     "brand": "apple",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, aperiam.",
-    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/apple/macbook-air-m2-chip/macbook-air-m2-chip-silver-01-500x500.webp"
+    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/apple/macbook-air-m2-chip/macbook-air-m2-chip-silver-01-500x500.webp",
+    "location": "Dhaka, Sonirakhra",
+    "resale_price": 60000,
+    "original_price": 150000,
+    "years_of_use": "3 years",
+    "posted_time": "25 November, 2022",
+    "seller_name": "Tariqul Tanmay"
   },
   {
     "title": "HP 15s-du3560TU Core i3 11th Gen 15.6 FHD Laptop",
     "brand": "hp",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, aperiam.",
-    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/hp-laptop/hp-15s/hp-15s-2-500x500.jpg"
+    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/hp-laptop/hp-15s/hp-15s-2-500x500.jpg",
+    "location": "Dhaka, Dhanmondi",
+    "resale_price": 30000,
+    "original_price": 100000,
+    "years_of_use": "1 years",
+    "posted_time": "25 November, 2022",
+    "seller_name": "Ameer Talha"
   },
   {
     "title": "HP 250 G8 Core i5 11th Gen 15.6 FHD Laptop",
     "brand": "hp",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, aperiam.",
-    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/hp-laptop/250-g8/250-g8-01-500x500.jpg"
+    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/hp-laptop/250-g8/250-g8-01-500x500.jpg",
+    "location": "Dhaka, Modhubag",
+    "resale_price": 20000,
+    "original_price": 70000,
+    "years_of_use": "5 years",
+    "posted_time": "25 November, 2022",
+    "seller_name": "Abdullah Al Hasib"
   },
   {
     "title": "Dell Latitude 14 3420 Core i3 11th Gen 14 FHD Laptop",
     "brand": "others",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, aperiam.",
-    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/dell/latitude-14-3420/latitude-3420-01-500x500.jpg"
+    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/dell/latitude-14-3420/latitude-3420-01-500x500.jpg",
+    "location": "Dhaka, Gulshan",
+    "resale_price": 25000,
+    "original_price": 80000,
+    "years_of_use": "4 years",
+    "posted_time": "25 November, 2022",
+    "seller_name": "Ishmam Faruki"
   },
   {
     "title": "Asus Vivobook E410MA Celeron N4020 14 HD Laptop",
     "brand": "others",
-    "description": "https://www.startech.com.bd/image/cache/catalog/laptop/asus/e410ma/e410ma-01-500x500.jpg"
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, aperiam.",
+    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/asus/e410ma/e410ma-01-500x500.jpg",
+    "location": "Dhaka, Rampura",
+    "resale_price": 10000,
+    "original_price": 50000,
+    "years_of_use": "4 years",
+    "posted_time": "25 November, 2022",
+    "seller_name": "Ashiqur Rahman"
   }
 ]

@@ -22,6 +22,34 @@ const Navbar = () => {
       </li>
     </React.Fragment>
   );
+
+  const usersItems = (
+    <React.Fragment>
+      {user?.uid && (
+        <Link
+          onClick={handleLogOut}
+          to="/"
+          className="btn btn-secondary text-white mx-2 my-2 lg:my-0"
+        >
+          Dashboard
+        </Link>
+      )}
+      {user?.uid ? (
+        <Link
+          onClick={handleLogOut}
+          to="/"
+          className="btn btn-primary text-secondary mx-2"
+        >
+          Sign Out
+        </Link>
+      ) : (
+        <Link to="/login" className="btn btn-primary text-secondary mx-2">
+          Log In
+        </Link>
+      )}
+    </React.Fragment>
+  );
+
   return (
     <div className="navbar bg-base-200 sticky top-0 z-50 flex justify-around">
       <div className="">
@@ -47,6 +75,7 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-secondary"
           >
             {menuItems}
+            {usersItems}
           </ul>
         </div>
         <Link
@@ -64,21 +93,7 @@ const Navbar = () => {
           {menuItems}
         </ul>
       </div>
-      <div className="">
-        {user?.uid ? (
-          <Link
-            onClick={handleLogOut}
-            to="/"
-            className="btn btn-primary text-secondary"
-          >
-            Sign Out
-          </Link>
-        ) : (
-          <Link to="/login" className="btn btn-primary text-secondary">
-            Log In
-          </Link>
-        )}
-      </div>
+      <div className="hidden lg:flex">{usersItems}</div>
     </div>
   );
 };

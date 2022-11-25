@@ -1,6 +1,6 @@
 import React from "react";
 // location, resale price, original price, years of use, the time when it got posted, the seller's name; if the seller is verified, there will be a blue tick next to their name and a Book now button.
-const Product = ({ data }) => {
+const Product = ({ data, setInformation }) => {
   const {
     title,
     brand,
@@ -34,7 +34,13 @@ const Product = ({ data }) => {
           </div>
         </div>
 
-        <button className="btn btn-primary">Buy Now</button>
+        <label
+          className="btn btn-primary"
+          htmlFor="booking-modal"
+          onClick={() => setInformation(data)}
+        >
+          Book Now
+        </label>
       </div>
     </div>
   );

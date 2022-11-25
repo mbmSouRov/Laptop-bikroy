@@ -3,8 +3,8 @@ import React from "react";
 const AdvertisementItems = () => {
   return (
     <div className="max-w-[1680px] mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-3">
-        <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 ">
+        <div className="card w-60 lg:w-96 bg-base-100 shadow-xl mx-auto">
           <figure>
             <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
           </figure>
@@ -20,7 +20,7 @@ const AdvertisementItems = () => {
             </div>
           </div>
         </div>
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card w-60 lg:w-96 bg-base-100 shadow-xl mx-auto">
           <figure>
             <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
           </figure>
@@ -36,7 +36,7 @@ const AdvertisementItems = () => {
             </div>
           </div>
         </div>
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card w-60 lg:w-96 bg-base-100 shadow-xl mx-auto">
           <figure>
             <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
           </figure>

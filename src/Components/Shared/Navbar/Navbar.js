@@ -27,8 +27,7 @@ const Navbar = () => {
     <React.Fragment>
       {user?.uid && (
         <Link
-          onClick={handleLogOut}
-          to="/"
+          to="/dashboard"
           className="btn btn-secondary text-white mx-2 my-2 lg:my-0"
         >
           Dashboard

@@ -17,6 +17,7 @@ import AdminRoute from "./AdminRoute";
 import PrivateRoutes from "./PrivateRoutes";
 import SellerRoute from "./SellerRoute";
 import Blog from "../Pages/Blog/Blog";
+import Error404 from "../ErrorPages/404Error Page/Error404";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>,
+      },
+      {
+        path: "*",
+        element: <Error404></Error404>,
       },
     ],
   },

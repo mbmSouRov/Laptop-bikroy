@@ -9,7 +9,6 @@ const useUser = (email) => {
       fetch(`http://localhost:5000/allUsers/${email}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           setIsUser(data.isUser);
           setIsUserLoading(false);
         });

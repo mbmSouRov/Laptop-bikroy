@@ -1,15 +1,77 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { format } from "date-fns";
+import { AuthContext } from "../../../Contexts/AuthProvider";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 const AddAProduct = () => {
+  const navigate = useNavigate();
+
+  const { user } = useContext(AuthContext);
+
+  const imageHostKey = process.env.REACT_APP_IMGBB_KEY;
+
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
+  const [startDate, setStartDate] = useState(new Date());
+
   const handleAddProduct = (data, e) => {
-    console.log(data);
+    const productImg = data.Image[0];
+
+    const formData = new FormData();
+
+    formData.append("image", productImg);
+
+    const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imageHostKey}`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgData) => {
+        if (imgData) {
+          const product = {
+            seller_email: user.email,
+            product_name: data.ProductName,
+            selling_Price: data.SellingPrice,
+            mobile_number: data.MobileNumber,
+            product_condition: data.ProductCondition,
+            location: data.Location,
+            product_description: data.ProductDescription,
+            original_price: data.OriginalPrice,
+            product_category: data.ProductCategory,
+            product_image: imgData.data.url,
+            year_of_purchase: format(startDate, "PP"),
+            year_of_uses: parseInt(
+              parseInt(format(new Date(), "y")) -
+                parseInt(format(startDate, "y"))
+            ),
+            status: "available",
+          };
+
+          fetch(`http://localhost:5000/allProducts`, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+              authorization: `bearer ${localStorage.getItem(`accessToken`)}`,
+            },
+            body: JSON.stringify(product),
+          })
+            .then((res) => res.json())
+            .then((result) => {
+              e.target.reset();
+              toast.success("Product Added Successfully");
+              navigate("/dashboard/myProducts");
+            });
+        }
+      });
   };
+
   return (
     <div className="p-10">
       <form onSubmit={handleSubmit(handleAddProduct)}>
@@ -153,7 +215,9 @@ const AddAProduct = () => {
                   defaultValue={"Select Category"}
                   {...register("ProductCategory", {})}
                 >
-                  <option disabled defaultValue={"Select Category"}></option>
+                  <option disabled defaultValue={"Select Category"}>
+                    Select Category
+                  </option>
                   <option>apple</option>
                   <option>hp</option>
                   <option>others</option>
@@ -164,16 +228,10 @@ const AddAProduct = () => {
               <label className="label">
                 {" "}
                 <span className="label-text">Year Of Purchase: </span>
-                <input
-                  type="text"
-                  {...register("name", {
-                    required: "Name is Required",
-                  })}
-                  className="input input-bordered justify-end max-w-xs"
+                <DatePicker
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
                 />
-                {errors.name && (
-                  <p className="text-red-500">{errors.name.message}</p>
-                )}
               </label>
             </div>
           </div>

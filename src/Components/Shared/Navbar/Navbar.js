@@ -15,10 +15,10 @@ const Navbar = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/appointment">Appointment</Link>
+        <Link to="/products">Products</Link>
       </li>
       <li>
-        <Link to="/about">About</Link>
+        <Link to="/blog">Blog</Link>
       </li>
     </React.Fragment>
   );

@@ -16,7 +16,7 @@ import Products from "../Pages/Products/Products";
 import AdminRoute from "./AdminRoute";
 import PrivateRoutes from "./PrivateRoutes";
 import SellerRoute from "./SellerRoute";
-
+import Blog from "../Pages/Blog/Blog";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -47,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "/sbaError",
         element: <SBAerror></SBAerror>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
     ],
   },

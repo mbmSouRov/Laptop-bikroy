@@ -93,7 +93,7 @@ const DashboardLayout = () => {
                 <li>
                   <Link
                     className="btn btn-secondary text-white my-2"
-                    to="/dashboard/reportedItems"
+                    to="/dashboard/reportedProducts"
                   >
                     Reported Items
                   </Link>

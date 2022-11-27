@@ -1,10 +1,52 @@
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../../Contexts/AuthProvider";
 
 const BuyModals = ({ information, setInformation }) => {
-  const { product_name, selling_Price } = information;
+  const { _id, product_name, selling_Price, product_image } = information;
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleBooking = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const phoneNo = form.phone.value;
+    const meetupLocation = form.location.value;
 
+    const bookingInfo = {
+      product_image: product_image,
+      title: product_name,
+      price: selling_Price,
+      buyer_email: user.email,
+      buyer_phoneNo: phoneNo,
+      buyer_meetupLocation: meetupLocation,
+    };
+    fetch(`http://localhost:5000/booking`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem(`accessToken`)}`,
+      },
+      body: JSON.stringify(bookingInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        fetch(`http://localhost:5000/laptops/${_id}`, {
+          method: "PUT",
+          headers: {
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.modifiedCount > 0) {
+              form.reset();
+              toast.success("Product Booked");
+              navigate("/");
+            }
+          });
+      });
+  };
   return (
     <>
       <input type="checkbox" id="booking-modal" className="modal-toggle" />
@@ -21,7 +63,7 @@ const BuyModals = ({ information, setInformation }) => {
           </label>
           <h3 className="text-lg font-bold">{}</h3>
           <form
-            // onSubmit={handleBooking}
+            onSubmit={handleBooking}
             className="grid grid-cols-1 gap-3 mt-10"
           >
             <input
@@ -61,6 +103,7 @@ const BuyModals = ({ information, setInformation }) => {
               type="text"
               placeholder="Phone Number"
               className="input w-full input-bordered"
+              required
             />
             <input
               name="location"
@@ -70,6 +113,7 @@ const BuyModals = ({ information, setInformation }) => {
             />
             <br />
             <input
+              htmlFor="booking-modal"
               className="btn btn-primary w-full"
               type="submit"
               value="Submit"

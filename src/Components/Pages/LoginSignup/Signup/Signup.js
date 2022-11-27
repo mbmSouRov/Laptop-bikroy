@@ -19,8 +19,6 @@ const Signup = () => {
     setSignUPError("");
     createUser(data.email, data.password)
       .then((result) => {
-        const user = result.user;
-        // console.log(user);
         toast.success("Successfully Created!");
         const userInfo = {
           displayName: data.name,
@@ -50,6 +48,7 @@ const Signup = () => {
       .then((res) => res.json())
       .then((data) => {
         setCreatedUserEmail(email);
+        navigate("/");
       });
   };
   return (

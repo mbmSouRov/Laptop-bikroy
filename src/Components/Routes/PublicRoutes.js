@@ -19,6 +19,9 @@ import SellerRoute from "./SellerRoute";
 import Blog from "../Pages/Blog/Blog";
 import Error404 from "../ErrorPages/404Error Page/Error404";
 import AllBuyers from "../Dashboards/AllBuyers/AllBuyers";
+import UserRoute from "./UserRoute";
+import MyOrders from "../Dashboards/MyOrders/MyOrders";
+import ReportedProduct from "../Dashboards/ReportedProducts/ReportedProduct";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -73,6 +76,14 @@ const router = createBrowserRouter([
         element: <Dashboard></Dashboard>,
       },
       {
+        path: "/dashboard/myOrders",
+        element: (
+          <UserRoute>
+            <MyOrders></MyOrders>
+          </UserRoute>
+        ),
+      },
+      {
         path: "/dashboard/addAProduct",
         element: (
           <SellerRoute>
@@ -109,6 +120,14 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <AllBuyers></AllBuyers>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/reportedProducts",
+        element: (
+          <AdminRoute>
+            <ReportedProduct></ReportedProduct>
           </AdminRoute>
         ),
       },

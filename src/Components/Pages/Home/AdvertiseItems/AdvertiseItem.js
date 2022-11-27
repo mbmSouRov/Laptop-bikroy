@@ -4,7 +4,7 @@ const AdvertiseItem = ({ data }) => {
   const { product_name, product_image, selling_Price, product_condition } =
     data;
   return (
-    <div className="card w-60 lg:w-96 bg-base-100 mx-auto  shadow-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-base-100 dark:hover:bg-base-200 transition-colors duration-300 cursor-pointer">
+    <div className="card w-60 lg:w-96 bg-base-100 mx-auto shadow-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-base-100 dark:hover:bg-base-200 transition-colors duration-300 cursor-pointer">
       <figure>
         <img className="h-80 p-10" src={product_image} alt="ProductImg" />
       </figure>

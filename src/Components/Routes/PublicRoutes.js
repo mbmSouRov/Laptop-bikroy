@@ -18,6 +18,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import SellerRoute from "./SellerRoute";
 import Blog from "../Pages/Blog/Blog";
 import Error404 from "../ErrorPages/404Error Page/Error404";
+import AllBuyers from "../Dashboards/AllBuyers/AllBuyers";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -100,6 +101,14 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <AllSellers></AllSellers>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/allBuyers",
+        element: (
+          <AdminRoute>
+            <AllBuyers></AllBuyers>
           </AdminRoute>
         ),
       },

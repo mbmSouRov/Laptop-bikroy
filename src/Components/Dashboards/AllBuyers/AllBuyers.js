@@ -1,15 +1,13 @@
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import toast from "react-hot-toast";
-import { AuthContext } from "../../../Contexts/AuthProvider";
 
-const AllSellers = () => {
-  const { deleteOneUser } = useContext(AuthContext);
+const AllBuyers = () => {
   const [seller, setSeller] = useState(null);
   const [loading, setLoading] = useState(true);
   axios({
     method: "get",
-    url: `http://localhost:5000/allUsers/seller`,
+    url: `http://localhost:5000/allUsers/user`,
     responseType: "stream",
   }).then((data) => {
     const datas = JSON.parse(data.data);
@@ -26,7 +24,7 @@ const AllSellers = () => {
     );
   }
 
-  const handleDeleteSeller = (id, name) => {
+  const handleDeleteBuyers = (id, name) => {
     fetch(`http://localhost:5000/allUsers/${id}`, {
       method: "DELETE",
       headers: {
@@ -46,9 +44,9 @@ const AllSellers = () => {
       <div className="overflow-x-auto p-10">
         <table className="table w-full ">
           <thead>
-            <tr>
-              <th>Seller Name</th>
-              <th>Seller Email</th>
+            <tr className="uppercase">
+              <th>User Name</th>
+              <th>User Email</th>
               <th>EDIT</th>
             </tr>
           </thead>
@@ -61,7 +59,7 @@ const AllSellers = () => {
                   <label
                     className="btn btn-error text-white hover:scale-105"
                     onClick={() => {
-                      handleDeleteSeller(x._id, x.name);
+                      handleDeleteBuyers(x._id, x.name);
                     }}
                   >
                     Delete
@@ -76,4 +74,4 @@ const AllSellers = () => {
   );
 };
 
-export default AllSellers;
+export default AllBuyers;

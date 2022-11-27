@@ -7,15 +7,18 @@ import {
   signOut,
   updateProfile,
   deleteUser,
+  signInWithPopup,
+  GoogleAuthProvider,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
-
+const provider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -39,6 +42,10 @@ const AuthProvider = ({ children }) => {
     return deleteUser(auth.currentUser);
   };
 
+  const userLoginWithGoogle = () => {
+    return signInWithPopup(auth, provider);
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -56,6 +63,7 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     deleteOneUser,
+    userLoginWithGoogle,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

@@ -29,6 +29,7 @@ const AdvertisementItems = () => {
   }
   return (
     <div className="max-w-[1680px] mx-auto">
+      <p className="text-center text-4xl mb-5">Advertise Items</p>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 ">
         {refetch() &&
           allProducts

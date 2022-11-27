@@ -11,7 +11,7 @@ const Login = () => {
     handleSubmit,
   } = useForm();
   const [loginError, setLoginError] = useState("");
-  const { signIn } = useContext(AuthContext);
+  const { signIn, userLogInWithGoogle } = useContext(AuthContext);
   const [loginUserEmail, setLoginUserEmail] = useState("");
   //   -------------------------------------------
   //   GAP
@@ -32,6 +32,18 @@ const Login = () => {
         setLoginError(error.message);
       });
   };
+
+  const handleGoogleLogIn = (event) => {
+    event.preventDefault();
+    userLogInWithGoogle()
+      .then((userInfo) => {
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
     <div className="h-[800px] flex justify-center items-center">
       <div className="w-96 p-7">
@@ -98,7 +110,10 @@ const Login = () => {
           </Link>
         </p>
         <div className="divider">OR</div>
-        <button className="btn btn-outline btn-success w-full">
+        <button
+          className="btn btn-outline btn-success w-full"
+          onClick={handleGoogleLogIn}
+        >
           <FaGoogle className="mx-2" />
           CONTINUE WITH GOOGLE
         </button>

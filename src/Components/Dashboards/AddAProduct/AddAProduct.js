@@ -27,7 +27,7 @@ const AddAProduct = () => {
 
     formData.append("image", productImg);
 
-    const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imageHostKey}`;
+    const url = `https://api.imgbb.com/1/upload?expiration=60000&key=${imageHostKey}`;
     fetch(url, {
       method: "POST",
       body: formData,
@@ -36,6 +36,7 @@ const AddAProduct = () => {
       .then((imgData) => {
         if (imgData) {
           const product = {
+            seller_name: user.displayName,
             seller_email: user.email,
             product_name: data.ProductName,
             selling_Price: data.SellingPrice,
@@ -51,6 +52,7 @@ const AddAProduct = () => {
               parseInt(format(new Date(), "y")) -
                 parseInt(format(startDate, "y"))
             ),
+            posted_time: format(new Date(), "PP"),
             status: "available",
           };
 
@@ -66,6 +68,18 @@ const AddAProduct = () => {
             .then((result) => {
               e.target.reset();
               toast.success("Product Added Successfully");
+              fetch(`http://localhost:5000/laptops`, {
+                method: "POST",
+                headers: {
+                  "content-type": "application/json",
+                  authorization: `bearer ${localStorage.getItem(
+                    `accessToken`
+                  )}`,
+                },
+                body: JSON.stringify(product),
+              })
+                .then((res) => res.json())
+                .then((data) => console.log(data));
               navigate("/dashboard/myProducts");
             });
         }

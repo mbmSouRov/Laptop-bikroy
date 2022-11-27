@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../../../Contexts/AuthProvider";
 
 const BuyModals = ({ information, setInformation }) => {
-  const { title, resale_price } = information;
+  const { product_name, selling_Price } = information;
   const { user } = useContext(AuthContext);
 
   return (
@@ -43,7 +43,7 @@ const BuyModals = ({ information, setInformation }) => {
             <input
               name="Title"
               type="text"
-              defaultValue={title.slice(0, 15)}
+              defaultValue={product_name.slice(0, 15)}
               disabled
               placeholder="Product Title"
               className="input w-full input-bordered"
@@ -51,7 +51,7 @@ const BuyModals = ({ information, setInformation }) => {
             <input
               name="resale_price"
               type="text"
-              defaultValue={resale_price}
+              defaultValue={selling_Price}
               disabled
               placeholder="Resale Price"
               className="input w-full input-bordered"

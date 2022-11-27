@@ -1,8 +1,13 @@
 import React from "react";
 
 const AdvertiseItem = ({ data }) => {
-  const { product_name, product_image, selling_Price, product_condition } =
-    data;
+  const {
+    product_name,
+    product_image,
+    selling_Price,
+    product_condition,
+    product_description,
+  } = data;
   return (
     <div className="card w-60 lg:w-96 bg-base-100 mx-auto shadow-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-base-100 dark:hover:bg-base-200 transition-colors duration-300 cursor-pointer">
       <figure>
@@ -15,7 +20,7 @@ const AdvertiseItem = ({ data }) => {
             NEW
           </div>
         </h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
+        <p>{product_description}</p>
         <div className="card-actions justify-end">
           <div className="badge badge-outline">{selling_Price} bdt</div>
           <div className="badge badge-outline">

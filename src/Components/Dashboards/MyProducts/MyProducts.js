@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import { AuthContext } from "../../../Contexts/AuthProvider";
+import Loading from "../../Shared/Loading/Loading";
 import Product from "./Product";
 
 const MyProducts = () => {
@@ -29,7 +30,7 @@ const MyProducts = () => {
     },
   });
   if (isLoading) {
-    return <p>Loading</p>;
+    return <Loading></Loading>;
   }
   return (
     <div className="p-10">

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import Loading from "../../Shared/Loading/Loading";
 
 const AllBuyers = () => {
   const [seller, setSeller] = useState(null);
@@ -16,12 +17,7 @@ const AllBuyers = () => {
   });
 
   if (loading) {
-    return (
-      <p>
-        Loading Plz Wait, In Case Of Emergency Please Reload The Page, Cause
-        Axios Sucks
-      </p>
-    );
+    return <Loading></Loading>;
   }
 
   const handleDeleteBuyers = (id, name) => {

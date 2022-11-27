@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import Loading from "../../../Shared/Loading/Loading";
 import AdvertiseItem from "./AdvertiseItem";
 
 const AdvertisementItems = () => {
@@ -25,7 +26,7 @@ const AdvertisementItems = () => {
     },
   });
   if (isLoading) {
-    return <p>Loading</p>;
+    return <Loading></Loading>;
   }
   return (
     <div className="max-w-[1680px] mx-auto">

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../../Contexts/AuthProvider";
+import Loading from "../../Shared/Loading/Loading";
 
 const AllSellers = () => {
   const { deleteOneUser } = useContext(AuthContext);
@@ -18,12 +19,7 @@ const AllSellers = () => {
   });
 
   if (loading) {
-    return (
-      <p>
-        Loading Plz Wait, In Case Of Emergency Please Reload The Page, Cause
-        Axios Sucks
-      </p>
-    );
+    return <Loading></Loading>;
   }
 
   const handleDeleteSeller = (id, name) => {

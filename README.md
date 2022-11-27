@@ -1,3 +1,21 @@
+# Laptop বিক্রয়
+
+
+## Live Website: ()
+
+
+## Features
+* In this project the key feature is React, React Router, Firebase Authentication, MongoDB, JWT Token and Admin Dashboard
+
+* Buyers can buy used laptop of three categories and a seller can sell only three categories laptops
+
+* Seller can add a product, view advertise or delete their product also can see buyers who are going to buy them.
+
+* When a user login, as default they will be marked as a buyers. There are also a seller option in case someone wants to sell any used laptop products.
+
+* Since there is an admin dashboard, admin can see all the buyers and all the sellers. Admin has the authority to delete any buyer, seller or any reported Items. Also only an admin can verify a seller only.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

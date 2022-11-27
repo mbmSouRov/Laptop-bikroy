@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider";
-
+import { FcMultipleDevices } from "react-icons/fc";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
@@ -82,8 +82,12 @@ const Navbar = () => {
           aria-label="Back to homepage"
           className="flex justify-center items-center p-2 gap-2"
         >
-          <p className="text-3xl text-primary font-bold">
-            Laptop <span className="text-secondary">Bikroy</span>{" "}
+          <p className="text-xl lg:text-3xl text-primary font-bold flex">
+            <FcMultipleDevices />
+            Laptop{" "}
+            <span className="text-secondary text-sm lg:text-2xl font-semibold">
+              বিক্রয়
+            </span>{" "}
           </p>
         </Link>
       </div>

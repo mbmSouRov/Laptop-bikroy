@@ -10,13 +10,14 @@ const Banner = () => {
           <Lottie animationData={bannerLaptop} loop={true} />
         </div>
         <div>
-          <h1 className="text-5xl font-bold mt-10 lg:mt-0 text-secondary">
-            Box Office News!
+          <h1 className="text-6xl font-bold mt-10 lg:mt-0 text-secondary">
+            <span className="text-7xl text-primary-content ">Sell/Buy</span>{" "}
+            Used Laptop Here!
           </h1>
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+          <p className="py-6 text-xl">
+            Laptop Bikroy is a online platform where you can buy or sell any
+            kind of used laptops.There are currently three category for
+            servicing our customers.
           </p>
           <button className="btn btn-primary">Get Started</button>
         </div>

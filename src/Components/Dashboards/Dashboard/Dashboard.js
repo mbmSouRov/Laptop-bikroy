@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../../Contexts/AuthProvider";
 
 const Dashboard = () => {
+  const { user } = useContext(AuthContext);
   return (
-    <div>
-      <p>This is Dashboard Page</p>
+    <div className="p-20">
+      <p className="text-7xl">Hello, {user.displayName}</p>
     </div>
   );
 };

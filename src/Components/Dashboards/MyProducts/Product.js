@@ -29,10 +29,52 @@ const Product = ({ data, refetch }) => {
         if (data.deletedCount > 0) {
           refetch();
           toast.success(`Product ${product_name} deleted successfully`);
+
+          fetch(`http://localhost:5000/allAdvertisedProducts/${product_name}`, {
+            method: "DELETE",
+            headers: {
+              authorization: `bearer ${localStorage.getItem(`accesstoken`)}`,
+            },
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.deletedCount > 0) {
+                console.log("Also Deleted From Advertisement");
+              }
+            });
         }
       });
   };
+  const HandleAdvertiseBtn = () => {
+    console.log("ggwp");
+    fetch(`http://localhost:5000/allAdvertisedProducts`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem(`accessToken`)}`,
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        fetch(`http://localhost:5000/allProducts/${user.email}/${_id}`, {
+          method: "PUT",
+          headers: {
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.modifiedCount > 0) {
+              toast.success("Product Advertised");
+              refetch();
+            }
+          });
+      });
+  };
 
+  // .................................
   return (
     <div className="card card-side bg-base-300 shadow-xl m-5">
       <figure>
@@ -48,7 +90,16 @@ const Product = ({ data, refetch }) => {
             <p className="text-xl my-1">Selling Status: {status}</p>
           </div>
           <div className="flex flex-col gap-5">
-            <button className="btn btn-primary">Advertise</button>
+            {status === `available` && (
+              <button className="btn btn-primary" onClick={HandleAdvertiseBtn}>
+                Advertise
+              </button>
+            )}
+            {status === `advertised` && (
+              <button className="btn btn-bg-primary-content disabled">
+                Advertised
+              </button>
+            )}
             <label
               className="btn btn-error"
               onClick={() => {

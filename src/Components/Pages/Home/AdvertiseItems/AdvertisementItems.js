@@ -1,57 +1,39 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import AdvertiseItem from "./AdvertiseItem";
 
 const AdvertisementItems = () => {
+  const {
+    data: allProducts,
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["allProducts"],
+    queryFn: async () => {
+      try {
+        const res = await fetch(`http://localhost:5000/allAdvertisedProducts`, {
+          headers: {
+            authorization: `bearer ${localStorage.getItem(`accessToken`)}`,
+          },
+        });
+        const data = await res.json();
+
+        return data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  });
+  if (isLoading) {
+    return <p>Loading</p>;
+  }
   return (
     <div className="max-w-[1680px] mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 ">
-        <div className="card w-60 lg:w-96 bg-base-100 shadow-xl mx-auto">
-          <figure>
-            <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">
-              Shoes!
-              <div className="badge badge-secondary">NEW</div>
-            </h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <div className="badge badge-outline">Fashion</div>
-              <div className="badge badge-outline">Products</div>
-            </div>
-          </div>
-        </div>
-        <div className="card w-60 lg:w-96 bg-base-100 shadow-xl mx-auto">
-          <figure>
-            <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">
-              Shoes!
-              <div className="badge badge-secondary">NEW</div>
-            </h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <div className="badge badge-outline">Fashion</div>
-              <div className="badge badge-outline">Products</div>
-            </div>
-          </div>
-        </div>
-        <div className="card w-60 lg:w-96 bg-base-100 shadow-xl mx-auto">
-          <figure>
-            <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">
-              Shoes!
-              <div className="badge badge-secondary">NEW</div>
-            </h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <div className="badge badge-outline">Fashion</div>
-              <div className="badge badge-outline">Products</div>
-            </div>
-          </div>
-        </div>
+        {refetch() &&
+          allProducts
+            .slice(0, 3)
+            .map((x) => <AdvertiseItem key={x._id} data={x}></AdvertiseItem>)}
       </div>
     </div>
   );

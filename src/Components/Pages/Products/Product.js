@@ -23,7 +23,7 @@ const Product = ({ data, setInformation }) => {
       product_image: product_image,
       seller_name: seller_name,
     };
-    fetch(`http://localhost:5000/reportedProducts`, {
+    fetch(`https://laptop-bikroy-server.vercel.app/reportedProducts`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -39,12 +39,12 @@ const Product = ({ data, setInformation }) => {
 
   return (
     <div>
-      <div className="card w-1/2 card-side bg-base-100 shadow-xl mx-auto items-center px-6">
-        <figure className="w-2/4 p-1">
+      <div className="card w-64 lg:w-1/2 card-side bg-base-100 shadow-xl mx-auto items-center px-6 flex flex-col lg:flex-row">
+        <figure className="w-40 lg:w-2/4 p-1">
           <img src={product_image} alt="Laptop_Img" />
         </figure>
 
-        <div className="card-body flex flex-row p-5">
+        <div className="card-body flex flex=col lg:flex-row p-5">
           <div>
             <p className="py-5 text-xl font-semibold">
               {product_name.slice(0, 20)}
@@ -81,7 +81,10 @@ const Product = ({ data, setInformation }) => {
               Booked
             </label>
           )}
-          <button className="btn btn-error" onClick={handleReportProducts}>
+          <button
+            className="btn btn-error mb-6 lg:mb-0"
+            onClick={handleReportProducts}
+          >
             Report To Admin
           </button>
         </div>

@@ -6,7 +6,7 @@ const useUser = (email) => {
 
   useEffect(() => {
     if (email) {
-      fetch(`http://localhost:5000/allUsers/${email}`)
+      fetch(`https://laptop-bikroy-server.vercel.app/allUsers/${email}`)
         .then((res) => res.json())
         .then((data) => {
           setIsUser(data.isUser);

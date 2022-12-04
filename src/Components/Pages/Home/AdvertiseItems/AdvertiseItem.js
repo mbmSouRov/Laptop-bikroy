@@ -16,9 +16,9 @@ const AdvertiseItem = ({ data }) => {
       <div className="card-body">
         <h2 className="card-title">
           {product_name}
-          <div className="badge badge-error animate-bounce text-white absolute ml-80 mb-96 -mt-80">
+          {/* <div className="badge badge-error animate-bounce text-white absolute ml-80 mb-96 -mt-80">
             NEW
-          </div>
+          </div> */}
         </h2>
         <p>{product_description}</p>
         <div className="card-actions justify-end">

@@ -39,7 +39,9 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/laptops/${params.brand}`),
+          fetch(
+            `https://laptop-bikroy-server.vercel.app/laptops/${params.brand}`
+          ),
       },
       {
         path: "/login",

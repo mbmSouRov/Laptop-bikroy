@@ -8,7 +8,7 @@ const AllBuyers = () => {
   const [loading, setLoading] = useState(true);
   axios({
     method: "get",
-    url: `http://localhost:5000/allUsers/user`,
+    url: `https://laptop-bikroy-server.vercel.app/allUsers/user`,
     responseType: "stream",
   }).then((data) => {
     const datas = JSON.parse(data.data);
@@ -21,7 +21,7 @@ const AllBuyers = () => {
   }
 
   const handleDeleteBuyers = (id, name) => {
-    fetch(`http://localhost:5000/allUsers/${id}`, {
+    fetch(`https://laptop-bikroy-server.vercel.app/allUsers/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem(`accesstoken`)}`,
@@ -37,7 +37,7 @@ const AllBuyers = () => {
 
   return (
     <div>
-      <div className="overflow-x-auto p-10">
+      <div className="overflow-x-auto p-2 mx-2 lg:mx-0 lg:p-10">
         <table className="table w-full ">
           <thead>
             <tr className="uppercase">

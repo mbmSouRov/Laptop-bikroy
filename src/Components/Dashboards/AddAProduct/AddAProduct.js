@@ -56,7 +56,7 @@ const AddAProduct = () => {
             status: "available",
           };
 
-          fetch(`http://localhost:5000/allProducts`, {
+          fetch(`https://laptop-bikroy-server.vercel.app/allProducts`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -68,7 +68,7 @@ const AddAProduct = () => {
             .then((result) => {
               e.target.reset();
               toast.success("Product Added Successfully");
-              fetch(`http://localhost:5000/laptops`, {
+              fetch(`https://laptop-bikroy-server.vercel.app/laptops`, {
                 method: "POST",
                 headers: {
                   "content-type": "application/json",
@@ -87,9 +87,9 @@ const AddAProduct = () => {
   };
 
   return (
-    <div className="p-10">
+    <div className="p-5 lg:p-10">
       <form onSubmit={handleSubmit(handleAddProduct)}>
-        <div className="flex justify-around">
+        <div className="flex justify-around flex-col lg:flex-row">
           <div>
             <div className="form-control w-full max-w-xs">
               <label className="label">

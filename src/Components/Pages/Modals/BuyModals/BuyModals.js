@@ -21,7 +21,7 @@ const BuyModals = ({ information, setInformation }) => {
       buyer_phoneNo: phoneNo,
       buyer_meetupLocation: meetupLocation,
     };
-    fetch(`http://localhost:5000/booking`, {
+    fetch(`https://laptop-bikroy-server.vercel.app/booking`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -31,7 +31,7 @@ const BuyModals = ({ information, setInformation }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        fetch(`http://localhost:5000/laptops/${_id}`, {
+        fetch(`https://laptop-bikroy-server.vercel.app/laptops/${_id}`, {
           method: "PUT",
           headers: {
             authorization: `bearer ${localStorage.getItem("accessToken")}`,

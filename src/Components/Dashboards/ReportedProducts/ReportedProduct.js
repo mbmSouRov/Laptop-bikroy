@@ -14,11 +14,14 @@ const ReportedProduct = () => {
     queryKey: ["products"],
     queryFn: async () => {
       try {
-        const res = await fetch(`http://localhost:5000/reportedProducts`, {
-          headers: {
-            authorization: `bearer ${localStorage.getItem(`accessToken`)}`,
-          },
-        });
+        const res = await fetch(
+          `https://laptop-bikroy-server.vercel.app/reportedProducts`,
+          {
+            headers: {
+              authorization: `bearer ${localStorage.getItem(`accessToken`)}`,
+            },
+          }
+        );
         const data = await res.json();
         return data;
       } catch (error) {

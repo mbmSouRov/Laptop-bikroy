@@ -10,11 +10,14 @@ const MyOrders = () => {
     queryKey: ["products"],
     queryFn: async () => {
       try {
-        const res = await fetch(`http://localhost:5000/booking/${user.email}`, {
-          headers: {
-            authorization: `bearer ${localStorage.getItem(`accessToken`)}`,
-          },
-        });
+        const res = await fetch(
+          `https://laptop-bikroy-server.vercel.app/booking/${user.email}`,
+          {
+            headers: {
+              authorization: `bearer ${localStorage.getItem(`accessToken`)}`,
+            },
+          }
+        );
         const data = await res.json();
         return data;
       } catch (error) {
@@ -26,7 +29,7 @@ const MyOrders = () => {
     return <Loading></Loading>;
   }
   return (
-    <div className="p-10">
+    <div className="p-2 lg:p-10">
       <p>This is my order page</p>
 
       {products.map((x) => (

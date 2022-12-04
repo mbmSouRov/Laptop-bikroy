@@ -38,7 +38,7 @@ const Signup = () => {
   };
   const saveUser = (name, email, role) => {
     const user = { name, email, role };
-    fetch("http://localhost:5000/allUsers", {
+    fetch("https://laptop-bikroy-server.vercel.app/allUsers", {
       method: "POST",
       headers: {
         "content-type": "application/json",

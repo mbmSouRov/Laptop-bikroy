@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 const OrderdItems = ({ data }) => {
   const { product_image, title, price } = data;
   return (
-    <div className="card card-side bg-base-300 shadow-xl m-5">
+    <div className="card card-side bg-base-300 shadow-xl m-5 flex flex-col lg:flex-row">
       <figure>
         <img className="w-60 h-60 p-10" src={product_image} alt="Movie" />
       </figure>

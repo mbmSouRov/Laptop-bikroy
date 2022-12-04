@@ -31,10 +31,10 @@ const ProductCatagory = () => {
   return (
     <div className="max-w-[1680px] mx-auto">
       <div className="my-20">
-        <p className="text-3xl text-primary font-semibold text-center uppercase">
+        <p className="text-xl lg:text-3xl text-primary font-semibold text-center uppercase">
           Product Catagory
         </p>
-        <p className="text-4xl text-center my-5">
+        <p className="text-2xl lg:text-4xl text-center my-5">
           We Provide These type of catagory
         </p>
       </div>

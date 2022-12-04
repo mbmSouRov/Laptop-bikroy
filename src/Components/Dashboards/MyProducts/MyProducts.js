@@ -15,7 +15,7 @@ const MyProducts = () => {
     queryFn: async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/allProducts/${user.email}`,
+          `https://laptop-bikroy-server.vercel.app/allProducts/${user.email}`,
           {
             headers: {
               authorization: `bearer ${localStorage.getItem(`accessToken`)}`,
@@ -33,7 +33,7 @@ const MyProducts = () => {
     return <Loading></Loading>;
   }
   return (
-    <div className="p-10">
+    <div className="p-2 lg:p-10">
       {products.map((x) => (
         <Product key={x._id} data={x} refetch={refetch}></Product>
       ))}

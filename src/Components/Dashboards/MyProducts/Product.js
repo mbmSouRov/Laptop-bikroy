@@ -18,24 +18,30 @@ const Product = ({ data, refetch }) => {
     setDeletingProduct(null);
   };
   const handleDeleteProduct = (product) => {
-    fetch(`http://localhost:5000/allProducts/${user.email}/${_id}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `bearer ${localStorage.getItem(`accesstoken`)}`,
-      },
-    })
+    fetch(
+      `https://laptop-bikroy-server.vercel.app/allProducts/${user.email}/${_id}`,
+      {
+        method: "DELETE",
+        headers: {
+          authorization: `bearer ${localStorage.getItem(`accesstoken`)}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
           refetch();
           toast.success(`Product ${product_name} deleted successfully`);
 
-          fetch(`http://localhost:5000/allAdvertisedProducts/${product_name}`, {
-            method: "DELETE",
-            headers: {
-              authorization: `bearer ${localStorage.getItem(`accesstoken`)}`,
-            },
-          })
+          fetch(
+            `https://laptop-bikroy-server.vercel.app/allAdvertisedProducts/${product_name}`,
+            {
+              method: "DELETE",
+              headers: {
+                authorization: `bearer ${localStorage.getItem(`accesstoken`)}`,
+              },
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               if (data.deletedCount > 0) {
@@ -47,7 +53,7 @@ const Product = ({ data, refetch }) => {
   };
   const HandleAdvertiseBtn = () => {
     console.log("ggwp");
-    fetch(`http://localhost:5000/allAdvertisedProducts`, {
+    fetch(`https://laptop-bikroy-server.vercel.app/allAdvertisedProducts`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -58,12 +64,15 @@ const Product = ({ data, refetch }) => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-        fetch(`http://localhost:5000/allProducts/${user.email}/${_id}`, {
-          method: "PUT",
-          headers: {
-            authorization: `bearer ${localStorage.getItem("accessToken")}`,
-          },
-        })
+        fetch(
+          `https://laptop-bikroy-server.vercel.app/allProducts/${user.email}/${_id}`,
+          {
+            method: "PUT",
+            headers: {
+              authorization: `bearer ${localStorage.getItem("accessToken")}`,
+            },
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.modifiedCount > 0) {
@@ -76,14 +85,14 @@ const Product = ({ data, refetch }) => {
 
   // .................................
   return (
-    <div className="card card-side bg-base-300 shadow-xl m-5">
+    <div className="card card-side bg-base-300 shadow-xl m-5 flex flex-col lg:flex-row">
       <figure>
         <img className="w-60 h-60 p-10" src={product_image} alt="Movie" />
       </figure>
 
       <div className="card-body">
         <h2 className="text-3xl font-semibold">{product_name}</h2>
-        <div className="flex justify-between">
+        <div className="flex justify-between flex-col lg:flex-row">
           <div className="mt-5">
             <p className="text-xl my-1">Description :{product_description}</p>
             <p className="text-xl my-1">Selling Price: {selling_Price}</p>
